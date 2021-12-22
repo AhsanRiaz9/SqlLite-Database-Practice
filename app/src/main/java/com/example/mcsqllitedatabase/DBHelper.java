@@ -58,5 +58,38 @@ public class DBHelper extends SQLiteOpenHelper {
         return list;
     }
 
+    public void updateStudent(StudentModel model){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(STUDENT_NAME, model.getName());
+        cv.put(STUDENT_CGPA, model.getCgpa());
+        db.update(STUDENT_TABLE, cv, STUDENT_ID+"= ?", new String[]{Integer.toString(model.getId())});
+    }
 
+    public StudentModel getStudent(int pos) {
+        StudentModel std;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("Select * from " + STUDENT_TABLE,null);
+        if(cursor.moveToNext())
+        {
+            int count = 0;
+            do{
+                if(count==pos)
+                {
+                    std = new StudentModel(cursor.getString(1),cursor.getFloat(2));
+                    std.setId(cursor.getInt(0));
+                    return std;
+                }
+            }
+            while(cursor.moveToNext());
+        }
+        std = new StudentModel(cursor.getString(1), cursor.getFloat(2));
+        std.setId(-1);
+        return std;
+    }
+
+    public void deleteStudent(StudentModel model){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(STUDENT_TABLE, STUDENT_ID+"= ?", new String[]{Integer.toString(model.getId())});
+    }
 }

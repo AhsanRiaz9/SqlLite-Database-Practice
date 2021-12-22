@@ -2,8 +2,10 @@ package com.example.mcsqllitedatabase;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -27,6 +29,18 @@ public class MainActivity extends AppCompatActivity  {
         showBtn = findViewById(R.id.showBtn);
         addBtn = findViewById(R.id.addBtn);
         updateListView();
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(), position + " Clicked", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), Change_Delete.class);
+                intent.putExtra("index",position);
+                intent.putExtra("name",nameText.getText().toString());
+                intent.putExtra("cgpa",cgpaText.getText().toString());
+                startActivity(intent);
+            }
+        });
 
         showBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,7 +69,6 @@ public class MainActivity extends AppCompatActivity  {
                 }
                 catch (Exception e){
                     Toast.makeText(MainActivity.this, "Error", Toast.LENGTH_SHORT).show();
-
                 }
             }
         });
