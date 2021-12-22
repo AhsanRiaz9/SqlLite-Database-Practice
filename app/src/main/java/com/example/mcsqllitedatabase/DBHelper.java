@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 
 public class DBHelper extends SQLiteOpenHelper {
-    public static final String STUDENT_TABLE = "StudentTable";
+    public static final String STUDENT_TABLE = "Student";
     public static final String STUDENT_ID = "StudentID";
     public static final String STUDENT_NAME = "StudentName";
     public static final String STUDENT_CGPA = "StudentCGPA";
@@ -22,7 +22,8 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db)
     {
-        String createDB = "CREATE TABLE " + STUDENT_TABLE + "(" + STUDENT_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + STUDENT_NAME + " Text, " + STUDENT_CGPA + " Float )";
+        String createDB = "CREATE TABLE " + STUDENT_TABLE + "(" + STUDENT_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + STUDENT_NAME + " Text, " + STUDENT_CGPA + " real )";
+        db.execSQL(createDB);
     }
 
     @Override

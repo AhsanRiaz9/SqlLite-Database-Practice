@@ -32,4 +32,12 @@ public class StudentModel {
     public void setCgpa(float cgpa) {
         this.cgpa = cgpa;
     }
+
+    @Override
+    public String toString() {
+        return "StudentModel{" +
+                "name='" + name + '\'' +
+                ", cgpa=" + cgpa +
+                '}';
+    }
 }
