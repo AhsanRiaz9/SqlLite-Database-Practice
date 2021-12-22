@@ -8,16 +8,14 @@
 
     <Button
         android:id="@+id/showBtn"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="178dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="30dp"
         android:backgroundTint="#0D47A1"
         android:text="Show All"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/addBtn"
-        app:layout_constraintTop_toBottomOf="@+id/cgpaText" />
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
     <TextView
         android:id="@+id/textView"
@@ -63,28 +61,32 @@
 
     <Button
         android:id="@+id/addBtn"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
+        android:layout_width="171dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="12dp"
         android:backgroundTint="#0D47A1"
         android:text="Add Student"
-        app:layout_constraintEnd_toStartOf="@+id/showBtn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cgpaText" />
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
     <ListView
         android:id="@+id/listview"
-        android:layout_width="381dp"
-        android:layout_height="480dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addBtn" />
+        app:layout_constraintTop_toBottomOf="@+id/showBtn" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="165dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

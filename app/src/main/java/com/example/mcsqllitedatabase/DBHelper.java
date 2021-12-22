@@ -50,7 +50,7 @@ public class DBHelper extends SQLiteOpenHelper {
         if(cursor.moveToFirst())
         {
             do {
-                list.add(new StudentModel(cursor.getString(2),cursor.getFloat(2)));
+                list.add(new StudentModel(cursor.getString(1),cursor.getFloat(2)));
             }
             while(cursor.moveToNext());
         }
