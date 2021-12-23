@@ -80,6 +80,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     std.setId(cursor.getInt(0));
                     return std;
                 }
+                count = count + 1;
             }
             while(cursor.moveToNext());
         }
